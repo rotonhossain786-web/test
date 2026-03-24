@@ -56,4 +56,4 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > key.pem
           chmod 600 key.pem
           rsync -avz -e "ssh -i key.pem -o StrictHostKeyChecking=no" ./build/ $SERVER_USER@$SERVER_HOST:/var/www/ci-cd-demo/
-          ssh -i key.pem -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "cd /var/www/ci-cd-demo && pm2 restart app || pm2 start app.js --name app"
+          ssh -i key.pem -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "cd /var/www/test && pm2 restart app || pm2 start app.js --name app"
